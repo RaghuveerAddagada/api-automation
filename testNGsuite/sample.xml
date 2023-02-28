@@ -1,0 +1,11 @@
+<suite name="API Automation">
+    <test name="Address Service Regression Test Cases">
+        <parameter name="browser" value=""/>
+        <classes>
+            <class name="Sample.SampleTest"/>
+        </classes>
+        <listeners>
+            <listener class-name="Sample.TestStatistics"/>
+        </listeners>
+    </test>
+</suite>
