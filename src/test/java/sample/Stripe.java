@@ -1,5 +1,6 @@
 package sample;
 
+import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -10,6 +11,7 @@ import java.io.IOException;
 
 public class Stripe {
 
+    final Logger log = Logger.getLogger(Stripe.class);
     final String STRIPE_URL = "https://stripe.com/docs/testing?testing-method=card-numbers";
     final String IND = "India (IN)";
 
@@ -30,10 +32,10 @@ public class Stripe {
         try {
             final Elements countryElements = elements.select(String.format("td")).parents();
             final String FULL_CARD_NUMBER = String.format("Dummy Credit card number from Stripe is : %s", countryElements.get(0).text());
-            System.out.println(FULL_CARD_NUMBER);
+            log.info(FULL_CARD_NUMBER);
         } catch (IndexOutOfBoundsException iob) {
             final String FAILURE_MESSAGE = String.format("No Dummy Credit Card Found for give Country : %s", UK_GB);
-            System.out.println(FAILURE_MESSAGE);
+            log.error(FAILURE_MESSAGE);
         }
     }
 }

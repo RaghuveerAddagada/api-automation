@@ -15,7 +15,7 @@
         <selenium.java.version>4.6.0</selenium.java.version>
         <maven.compiler.version>3.10.1</maven.compiler.version>
         <lombok.version>1.18.24</lombok.version>
-        <testng.version>7.4.0</testng.version>
+        <testng.version>7.7.0</testng.version>
         <slf4j.version>2.0.0</slf4j.version>
         <tesults.version>1.0.2</tesults.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
@@ -75,6 +75,32 @@
            <artifactId>jsoup</artifactId>
            <version>1.15.3</version>
        </dependency>
+
+       <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+       <dependency>
+           <groupId>log4j</groupId>
+           <artifactId>log4j</artifactId>
+           <version>1.2.17</version>
+       </dependency>
+       <dependency>
+           <groupId>org.slf4j</groupId>
+           <artifactId>slf4j-simple</artifactId>
+           <version>1.7.21</version>
+       </dependency>
+
+       <!--
+        <dependency>
+           <groupId>org.apache.logging.log4j</groupId>
+           <artifactId>log4j-api</artifactId>
+           <version>2.20.0</version>
+       </dependency>
+       <dependency>
+           <groupId>org.apache.logging.log4j</groupId>
+           <artifactId>log4j-core</artifactId>
+           <version>2.20.0</version>
+       </dependency>
+       -->
+
    </dependencies>
 
     <build>

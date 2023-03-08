@@ -4,12 +4,14 @@ import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.parsing.Parser;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
+import org.apache.log4j.Logger;
 import org.testng.Assert;
-import org.testng.Reporter;
 
 import static com.jayway.restassured.RestAssured.given;
 
 public class RestClient {
+
+    Logger log = Logger.getLogger(RestClient.class);
 
     public <T>T getResponse(final RequestType requestType, final RequestSpecification reqSpecification, final Class<T> responseClass, final Integer expectedStatusCode){
         RestAssured.defaultParser = Parser.JSON;
@@ -34,16 +36,16 @@ public class RestClient {
                     break;
             }
         } catch (Exception e) {
-            Reporter.log("Exception Occurred : " + e.toString(), true);
+            log.error("Exception Occurred : " + e.getCause());
             Assert.fail("API call failure");
         }
-        Reporter.log(response.prettyPrint());
+        log.debug(response.prettyPrint());
         if(response.statusCode() != expectedStatusCode) {
-            Reporter.log("status code received : " + response.statusCode(), true);
+            log.error("status code received : " + response.statusCode());
             Assert.fail("status code doesn't match");
         }
         if(response.getBody().asString().equals("")){
-            Reporter.log("response body is empty, returning null response", true);
+            log.warn("response body is empty, returning null response");
             return null;
         }
         return response.as(responseClass);
@@ -72,16 +74,16 @@ public class RestClient {
                     break;
             }
         } catch (Exception e) {
-            Reporter.log("Exception Occurred : " + e.toString(), true);
+            log.error("Exception Occurred : " + e.getCause());
             Assert.fail("API call failure");
         }
-        Reporter.log(response.prettyPrint());
+        log.info(response.prettyPrint());
         if(response.statusCode() != expectedStatusCode) {
-            Reporter.log("status code received : " + response.statusCode(), true);
+            log.error("status code received : " + response.statusCode());
             Assert.fail("status code doesn't match");
         }
         if(response.getBody().asString().equals("")){
-            Reporter.log("response body is empty, returning null response");
+            log.warn("response body is empty, returning null response");
             return null;
         }
         return response;

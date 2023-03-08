@@ -5,17 +5,19 @@ import com.backend.helpers.endpoints.Service;
 import com.backend.helpers.restassured.RestClient;
 import com.backend.pojo.GenderApiResponse;
 import com.jayway.restassured.builder.RequestSpecBuilder;
-import com.jayway.restassured.response.Response;
+
 
 import static com.backend.helpers.restassured.RequestType.*;
 
 public class GenderAPIs {
 
+    Logger log = Logger.getLogger(GenderAPIs.class);
+
     final RestClient restClient = new RestClient();
 
     public GenderApiResponse getGenderByName(final String name, final StatusCode statusCode) {
 
-        // this is the end point https://api.genderize.io/?name=luc
+        log.info(String.format("sending request with name as : {}", name));
         final RequestSpecBuilder request = new RequestSpecBuilder()
                 .setBaseUri(Service.GENDER.getService())
                 .addQueryParam("name", name);
