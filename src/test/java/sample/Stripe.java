@@ -1,6 +1,7 @@
 package sample;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 public class Stripe {
 
-    final Logger log = Logger.getLogger(Stripe.class);
+    private static final Logger log = LogManager.getLogger(Stripe.class);
     final String STRIPE_URL = "https://stripe.com/docs/testing?testing-method=card-numbers";
     final String IND = "India (IN)";
 

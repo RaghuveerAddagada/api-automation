@@ -5,20 +5,21 @@ import com.backend.helpers.endpoints.Service;
 import com.backend.helpers.restassured.RestClient;
 import com.backend.pojo.GenderApiResponse;
 import com.jayway.restassured.builder.RequestSpecBuilder;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import static com.backend.helpers.restassured.RequestType.*;
 
 public class GenderAPIs {
 
-    Logger log = Logger.getLogger(GenderAPIs.class);
+    private static final Logger log = LogManager.getLogger(GenderAPIs.class);
 
     final RestClient restClient = new RestClient();
 
     public GenderApiResponse getGenderByName(final String name, final StatusCode statusCode) {
 
-        log.info(String.format("sending request with name as : {}", name));
+        log.info(String.format("sending request with name as : %s", name));
         final RequestSpecBuilder request = new RequestSpecBuilder()
                 .setBaseUri(Service.GENDER.getService())
                 .addQueryParam("name", name);

@@ -76,20 +76,8 @@
            <version>1.15.3</version>
        </dependency>
 
-       <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+       <!-- log4j2 -->
        <dependency>
-           <groupId>log4j</groupId>
-           <artifactId>log4j</artifactId>
-           <version>1.2.17</version>
-       </dependency>
-       <dependency>
-           <groupId>org.slf4j</groupId>
-           <artifactId>slf4j-simple</artifactId>
-           <version>1.7.21</version>
-       </dependency>
-
-       <!--
-        <dependency>
            <groupId>org.apache.logging.log4j</groupId>
            <artifactId>log4j-api</artifactId>
            <version>2.20.0</version>
@@ -99,7 +87,13 @@
            <artifactId>log4j-core</artifactId>
            <version>2.20.0</version>
        </dependency>
-       -->
+
+       <!-- SLF4J Bridge -->
+       <dependency>
+           <groupId>org.apache.logging.log4j</groupId>
+           <artifactId>log4j-slf4j-impl</artifactId>
+           <version>2.11.2</version>
+       </dependency>
 
    </dependencies>
 

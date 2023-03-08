@@ -4,14 +4,15 @@ import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.parsing.Parser;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.testng.Assert;
 
 import static com.jayway.restassured.RestAssured.given;
 
 public class RestClient {
 
-    Logger log = Logger.getLogger(RestClient.class);
+    private static final Logger log = LogManager.getLogger(RestClient.class);
 
     public <T>T getResponse(final RequestType requestType, final RequestSpecification reqSpecification, final Class<T> responseClass, final Integer expectedStatusCode){
         RestAssured.defaultParser = Parser.JSON;

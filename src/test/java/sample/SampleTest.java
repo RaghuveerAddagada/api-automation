@@ -3,16 +3,17 @@ package sample;
 import com.backend.apis.DataUSA;
 import com.backend.apis.GenderAPIs;
 import com.backend.helpers.common.StatusCode;
+import com.backend.helpers.restassured.RestClient;
 import com.backend.pojo.DataUSAResponse;
 import com.backend.pojo.GenderApiResponse;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 public class SampleTest extends GenderAPIs {
 
-    final Logger log = Logger.getLogger(SampleTest.class);
+    private static final Logger log = LogManager.getLogger(SampleTest.class);
 
     @Test
     public void testNameForGender() {
