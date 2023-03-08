@@ -5,6 +5,7 @@ import com.backend.helpers.endpoints.Service;
 import com.backend.helpers.restassured.RestClient;
 import com.backend.pojo.GenderApiResponse;
 import com.jayway.restassured.builder.RequestSpecBuilder;
+import org.apache.log4j.Logger;
 
 
 import static com.backend.helpers.restassured.RequestType.*;
