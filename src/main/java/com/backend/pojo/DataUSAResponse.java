@@ -1,72 +1,62 @@
 package com.backend.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
-
 import java.util.List;
 
-@Data
-@JsonIgnoreProperties(ignoreUnknown = true)
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public final class DataUSAResponse {
+    private List<DataItem> data;
+    private List<SourceItem> source;
 
-    private List<DataIs> data;
-    private List<SourceIs> source;
-
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class DataIs {
-
-        @JsonProperty("ID Nation")
-        private String iDNation;
-
+    @Getter
+    @Setter
+    public static class DataItem{
         @JsonProperty("Nation")
         private String nation;
-
-        @JsonProperty("ID Year")
-        private String idYear;
 
         @JsonProperty("Year")
         private String year;
 
         @JsonProperty("Population")
-        private String population;
+        private int population;
 
         @JsonProperty("Slug Nation")
         private String slugNation;
 
+        @JsonProperty("ID Nation")
+        private String idNation;
+
+        @JsonProperty("ID Year")
+        private int idYear;
     }
 
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class SourceIs {
-
-        private List<String> measures;
-        private Annotations annotations;
-        private String name;
-        private List<String> substitutions;
-    }
-
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class Annotations {
-
-        @JsonProperty("source_name")
-        private String sourceName;
-
-        @JsonProperty("source_description")
-        private String sourceDescription;
-
-        @JsonProperty("dataset_name")
-        private String datasetName;
-
-        @JsonProperty("dataset_link")
-        private String datasetLink;
-
-        @JsonProperty("table_id")
-        private String tableId;
-
+    @Getter
+    @Setter
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    public static class Annotations{
         private String topic;
+        private String datasetName;
+        private String datasetLink;
+        private String tableId;
+        private String sourceName;
         private String subtopic;
+        private String sourceDescription;
+    }
+
+    @Getter
+    @Setter
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    public static class SourceItem{
+        private List<String> measures;
+        private List<Object> substitutions;
+        private String name;
+        private Annotations annotations;
     }
 }

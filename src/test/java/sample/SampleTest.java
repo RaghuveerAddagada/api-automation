@@ -5,7 +5,6 @@ import com.backend.apis.GenderAPIs;
 import com.backend.helpers.common.StatusCode;
 import com.backend.pojo.DataUSAResponse;
 import com.backend.pojo.GenderApiResponse;
-import org.apache.commons.lang3.StringUtils;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
