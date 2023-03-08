@@ -1,4 +1,4 @@
-package Sample;
+package sample;
 
 import com.backend.apis.DataUSA;
 import com.backend.apis.GenderAPIs;
@@ -37,21 +37,5 @@ public class SampleTest extends GenderAPIs {
         Reporter.log("Subtopic in Source  Response : " + response.getSource().get(0).getAnnotations().getSubtopic(),true);
         Reporter.log("Topic in Source  Response : " + response.getSource().get(0).getAnnotations().getTopic(),true);
 
-    }
-
-    @Test
-    public void abcdf() {
-        final String getMaskedCardNumber = "XXXX-XXXX-XXXX-1223";
-        final String[] cardNumberAfterSplit = getMaskedCardNumber.split("-");
-
-        Assert.assertEquals(StringUtils.countMatches(cardNumberAfterSplit[0], "XXXX"), 1, "First part of card number is un-masked");
-        Assert.assertEquals(StringUtils.countMatches(cardNumberAfterSplit[1], "XXXX"), 1, "Second part of card number is un-masked");
-        Assert.assertEquals(StringUtils.countMatches(cardNumberAfterSplit[2], "XXXX"), 1, "Third part of card number is un-masked");
-
-        if (cardNumberAfterSplit[3].startsWith("XX")) {
-            Assert.assertTrue(StringUtils.isNumeric(cardNumberAfterSplit[3].replace("XX","")), "Fourth part of card number is masked");
-        } else {
-            Assert.assertTrue(StringUtils.isNumeric(cardNumberAfterSplit[3]), "Fourth part of card number is masked");
-        }
     }
 }
