@@ -9,9 +9,11 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <checkstyle.custom.check.severity>ignore</checkstyle.custom.check.severity>
+        <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
+        <strictBuild>true</strictBuild>
         <aspectj.version>1.8.10</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- <java.version>11</java.version> -->
         <selenium.java.version>4.6.0</selenium.java.version>
         <maven.compiler.version>3.10.1</maven.compiler.version>
         <lombok.version>1.18.24</lombok.version>
@@ -19,9 +21,6 @@
         <slf4j.version>2.0.0</slf4j.version>
         <tesults.version>1.0.2</tesults.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
-        <!-- <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target> -->
-
     </properties>
 
    <dependencies>
@@ -107,6 +106,41 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.6</version>
+                <dependencies>
+                    <!-- https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle -->
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>5.7</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <cacheFile></cacheFile>
+                    <consoleOutput>true</consoleOutput>
+                    <logViolationsToConsole>true</logViolationsToConsole>
+                    <propertyExpansion>
+                        config_loc=${project.basedir}
+                    </propertyExpansion>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <linkXRef>false</linkXRef>
+                    <failsOnError>${strictBuild}</failsOnError>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>enforce-style</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>checkstyle</goal>
+                        </goals>
+                        <!-- <configuration> <failOnViolation>true</failOnViolation> <maxAllowedViolations>0</maxAllowedViolations>
+                            <violationSeverity>info</violationSeverity> </configuration> -->
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
