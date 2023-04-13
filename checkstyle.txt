@@ -1,0 +1,36 @@
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.6</version>
+                <dependencies>
+                    <!-- https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle -->
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>5.7</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <cacheFile></cacheFile>
+                    <consoleOutput>true</consoleOutput>
+                    <logViolationsToConsole>true</logViolationsToConsole>
+                    <propertyExpansion>
+                        config_loc=${project.basedir}
+                    </propertyExpansion>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <linkXRef>false</linkXRef>
+                    <failsOnError>${strictBuild}</failsOnError>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>enforce-style</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>checkstyle</goal>
+                        </goals>
+                        <!-- <configuration> <failOnViolation>true</failOnViolation> <maxAllowedViolations>0</maxAllowedViolations>
+                            <violationSeverity>info</violationSeverity> </configuration> -->
+                    </execution>
+                </executions>
+            </plugin>
