@@ -22,7 +22,7 @@ pipeline {
 
                 }
                 always {
-                    junit allowEmptyResults: true, skipMarkingBuildUnstable: true, skipOldReports: true, skipPublishingChecks: true, testResults: '*/*.xml'
+                    junit allowEmptyResults: true, skipMarkingBuildUnstable: true, skipOldReports: true, skipPublishingChecks: true, testResults: 'test-output/*.xml'
                 }
             }
         }
