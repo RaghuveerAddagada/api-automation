@@ -22,7 +22,6 @@ pipeline {
 
                 }
                 always {
-                    step([$class: 'Publisher', reportFilenamePattern: '**test-output/testng-results.xml'])
                     junit allowEmptyResults: true, skipMarkingBuildUnstable: true, skipOldReports: true, skipPublishingChecks: true, testResults: '*/*.xml'
                 }
             }
