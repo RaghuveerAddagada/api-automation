@@ -1,14 +1,15 @@
 package com.backend.helpers.restassured;
 
-import com.jayway.restassured.RestAssured;
-import com.jayway.restassured.parsing.Parser;
-import com.jayway.restassured.response.Response;
-import com.jayway.restassured.specification.RequestSpecification;
+
+import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.testng.Assert;
 
-import static com.jayway.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
 
 public class RestClient {
 
@@ -16,7 +17,7 @@ public class RestClient {
 
     public <T>T getResponse(final RequestType requestType, final RequestSpecification reqSpecification, final Class<T> responseClass, final Integer expectedStatusCode){
         RestAssured.defaultParser = Parser.JSON;
-        RestAssured.given().contentType("application/json\r\n");
+        given().contentType("application/json\r\n");
         Response response = null;
         try {
             switch (requestType) {
@@ -54,7 +55,7 @@ public class RestClient {
 
     public Response getResponse(final RequestType requestType, final RequestSpecification reqSpecification, final Integer expectedStatusCode){
         RestAssured.defaultParser = Parser.JSON;
-        RestAssured.given().contentType("application/json\r\n");
+        given().contentType("application/json\r\n");
         Response response = null;
         try {
             switch (requestType) {

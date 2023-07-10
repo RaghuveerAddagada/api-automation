@@ -1,5 +1,6 @@
 package com.backend.apis;
 
+import io.restassured.builder.RequestSpecBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -7,7 +8,6 @@ import com.backend.helpers.common.StatusCode;
 import com.backend.helpers.endpoints.Service;
 import com.backend.helpers.restassured.RestClient;
 import com.backend.pojo.GenderApiResponse;
-import com.jayway.restassured.builder.RequestSpecBuilder;
 
 
 

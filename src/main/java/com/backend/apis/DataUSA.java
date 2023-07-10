@@ -5,7 +5,7 @@ import com.backend.helpers.endpoints.Endpoints;
 import com.backend.helpers.endpoints.Service;
 import com.backend.helpers.restassured.RestClient;
 import com.backend.pojo.DataUSAResponse;
-import com.jayway.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.RequestSpecBuilder;
 
 import static com.backend.helpers.restassured.RequestType.*;
 
