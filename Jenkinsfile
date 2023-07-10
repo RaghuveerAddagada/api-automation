@@ -17,10 +17,6 @@ pipeline {
             }
 
             post {
-                success {
-                    archiveArtifacts artifacts: '*test-output/.html', followSymlinks: false
-
-                }
                 always {
                     junit allowEmptyResults: true, skipMarkingBuildUnstable: true, skipOldReports: true, skipPublishingChecks: true, testResults: '*/*.xml'
                 }
