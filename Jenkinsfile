@@ -16,14 +16,16 @@ pipeline {
                 sh "mvn clean test -DsuiteXmlFile=testNGsuite/sample.xml"
             }
 
-            //post {
-            //    success {
-            //        archiveArtifacts artifacts: '*test-output/.html', followSymlinks: false
-            //    }
-            //    always {
-            //        step([$class: 'Publisher', reportFilenamePattern: '**test-output/testng-results.xml'])
-            //    }
-            //}
+            post {
+                success {
+                    archiveArtifacts artifacts: '*test-output/.html', followSymlinks: false
+
+                }
+                always {
+                    step([$class: 'Publisher', reportFilenamePattern: '**test-output/testng-results.xml'])
+                    junit allowEmptyResults: true, skipMarkingBuildUnstable: true, skipOldReports: true, skipPublishingChecks: true, testResults: '*/*.xml'
+                }
+            }
         }
     }
 }
