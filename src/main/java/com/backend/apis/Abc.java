@@ -3,12 +3,13 @@ package com.backend.apis;
 import net.jodah.failsafe.Failsafe;
 import net.jodah.failsafe.RetryPolicy;
 import org.awaitility.Awaitility;
-import org.awaitility.Duration;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
@@ -34,6 +35,21 @@ public class Abc {
                 .atMost(ONE_MINUTE)
                 .untilAsserted(() -> System.out.println("prime number for you is :" + checkPrime()));
     }
+
+    @Test
+    public void tstDec() {
+        final DecimalFormat df = new DecimalFormat("0.0");
+        final BigDecimal a = new BigDecimal(13000.0);
+        final BigDecimal b = new BigDecimal(13000);
+
+        System.out.println("a" + a);
+        System.out.println("b" + df.format(b));
+
+
+        Assert.assertEquals(df.format(a), df.format(b));
+
+    }
+
 
     @Test
     public void getPrimeNumberWithRetry() {
