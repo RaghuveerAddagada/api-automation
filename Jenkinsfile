@@ -18,7 +18,7 @@ pipeline {
 
             post {
                 always {
-                    junit allowEmptyResults: true, skipMarkingBuildUnstable: true, skipOldReports: true, skipPublishingChecks: true, testResults: 'test-output/junitreports/*.xml'
+                    junit allowEmptyResults: true, skipMarkingBuildUnstable: true, skipOldReports: true, skipPublishingChecks: true, testResults: '*/*.xml'
                 }
             }
         }
