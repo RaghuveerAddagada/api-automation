@@ -15,11 +15,11 @@ pipeline {
             steps {
                 sh "mvn clean test -DsuiteXmlFile=testNGsuite/sample.xml"
             }
-        }
 
-        post {
-            always {
-                testNG showFailedBuilds: true, unstableSkips: 0
+            post {
+                always {
+                    testNG showFailedBuilds: true, unstableSkips: 0
+                }
             }
         }
     }
