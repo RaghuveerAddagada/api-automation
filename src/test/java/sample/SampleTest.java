@@ -9,6 +9,8 @@ import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 @Log4j2
 public class SampleTest extends GenderAPIs {
 
@@ -35,5 +37,11 @@ public class SampleTest extends GenderAPIs {
         log.info("Name in Source  Response : " + response.getSource().get(0).getName());
         log.info("Subtopic in Source  Response : " + response.getSource().get(0).getAnnotations().getSubtopic());
         log.info("Topic in Source  Response : " + response.getSource().get(0).getAnnotations().getTopic());
+    }
+
+    @Test(invocationCount = 13)
+    public void testRandomness() {
+        final Random random = new Random();
+        Assert.assertTrue(random.nextBoolean(), "Test Failed due to mismatch");
     }
 }
