@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- https://howtodoinjava.com/log4j2/log4j2-xml-configuration-example/
-     Extra logging related to initialization of Log4j.
-     Set to debug or trace if log4j initialization is failing. -->
 <Configuration status="warn">
     <Appenders>
         <!-- Console appender configuration -->
         <Console name="console" target="SYSTEM_OUT">
-            <!-- example : 2023-03-08 18:31:43 INFO  SampleTest:25 - Name in Response-->
+            <!-- example: 2023-03-08 18:31:43 INFO  SampleTest:25 - Name in Response -->
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
         </Console>
+        <!-- Reporter appender configuration -->
+        <ReporterAppender name="REPORTER_APPENDER" />
     </Appenders>
     <Loggers>
-        <!-- Root logger referring to console appender -->
-        <!-- # If you add here info, debug messages will not be visible
-             # If you add here debug, both info and debug will be visible
-             # refer this for more https://www.javatpoint.com/log4j-logging-levels-->
-        <Root level="debug" additivity="false">
+        <!-- Root logger referring to both console and reporter appender -->
+        <Root level="info" additivity="false">
             <AppenderRef ref="console" />
+            <AppenderRef ref="REPORTER_APPENDER" />
         </Root>
     </Loggers>
 </Configuration>
