@@ -18,6 +18,7 @@ pipeline {
 
             post {
                 always {
+                    archiveArtifacts allowEmptyArchive: true, artifacts: 'test-output/*', followSymlinks: false
                     junit allowEmptyResults: true, skipMarkingBuildUnstable: true, skipOldReports: true, skipPublishingChecks: true, testResults: '*.xml'
                 }
             }
