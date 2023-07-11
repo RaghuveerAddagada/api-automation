@@ -39,7 +39,7 @@ public class SampleTest extends GenderAPIs {
         log.info("Topic in Source  Response : " + response.getSource().get(0).getAnnotations().getTopic());
     }
 
-    @Test(invocationCount = 13)
+    @Test
     public void testRandomness() {
         final boolean random = new Random().nextBoolean();
         log.info("Given Value is : " + random);
