@@ -41,7 +41,8 @@ public class SampleTest extends GenderAPIs {
 
     @Test(invocationCount = 13)
     public void testRandomness() {
-        final Random random = new Random();
-        Assert.assertTrue(random.nextBoolean(), "Test Failed due to mismatch");
+        final boolean random = new Random().nextBoolean();
+        log.info("Given Value is : " + random);
+        Assert.assertTrue(random, "Test Failed due to mismatch");
     }
 }
