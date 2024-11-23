@@ -2,7 +2,7 @@
 <suite name="API Automation">
     <test name="Address Service Regression Test Cases">
         <classes>
-            <class name="sample.FileComparator"/>
+            <class name="sample.FileCompare"/>
         </classes>
     </test>
 </suite>
