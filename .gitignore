@@ -26,3 +26,4 @@ target/
 hs_err_pid*
 
 test-output/*
+src/test/resources/results.xlsx
