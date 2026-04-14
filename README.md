@@ -43,13 +43,15 @@ api-automation/
 ## Key Dependencies
 
 | Dependency | Version | Purpose |
-|------------|---------|-----|----|
+|------------|---------|---------|
 | rest-assured | 4.3.1 | REST API testing |
 | testng | 7.7.0 | Test execution framework |
 | lombok | 1.18.34 | Annotation processing |
 | log4j-api | 2.20.0 | Logging API |
 | jackson-databind | 2.12.7.1 | JSON processing |
 | groovy-all | 2.4.21 | Groovy scripting support |
+| jsoup | 1.15.3 | HTML parsing |
+| awaitility | 3.0.0 | Fluent async waiting |
 
 ## Setup Instructions
 
