@@ -31,7 +31,7 @@ api-automation/
 
 ## Technologies Used
 
-- **Java 8** - Core programming language
+- **Java 21** - Core programming language (OpenJDK 21.0.9)
 - **Maven** - Build automation and dependency management
 - **RestAssured** - REST API testing library
 - **TestNG** - Testing framework
@@ -45,18 +45,24 @@ api-automation/
 | Dependency | Version | Purpose |
 |------------|---------|---------|
 | rest-assured | 4.3.1 | REST API testing |
+| rest-assured-common | 4.3.1 | Core RestAssured functionality |
+| rest-assured-json-path | 4.3.1 | JSON path assertions |
 | testng | 7.7.0 | Test execution framework |
-| lombok | 1.18.34 | Annotation processing |
-| log4j-api | 2.20.0 | Logging API |
+| awaitility | 3.0.0 | Fluent async waiting |
+| jaxb-api | 2.3.0 | XML binding API |
 | jackson-databind | 2.12.7.1 | JSON processing |
 | groovy-all | 2.4.21 | Groovy scripting support |
+| lombok | 1.18.34 | Annotation processing |
 | jsoup | 1.15.3 | HTML parsing |
-| awaitility | 3.0.0 | Fluent async waiting |
+| log4j-api | 2.20.0 | Logging API |
+| log4j-core | 2.20.0 | Logging implementation |
+| log4j-slf4j-impl | 2.11.2 | SLF4J bridge |
+| failsafe | 2.4.0 | Fault tolerance |
 
 ## Setup Instructions
 
 ### Prerequisites
-- JDK 1.8 or higher
+- **OpenJDK 21** or higher (OpenJDK 21.0.9)
 - Maven 3.x
 
 ### Build the Project
